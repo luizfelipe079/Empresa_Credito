@@ -1,9 +1,9 @@
 package com.lf2.empresa.credito.dto;
 
 import com.lf2.empresa.credito.mapper.CreditoMapper;
-import com.lf2.empresa.credito.model.Cliente;
 import com.lf2.empresa.credito.model.Credito;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -11,10 +11,15 @@ import java.util.Date;
 public class CreditoDto
 {
     private Long id;
+
     private Double valor;
+
+    @DateTimeFormat(pattern = "dd-MM-YYYY")
     private Date dataPrimeiraParcela;
+
     private Integer numParcelas;
-    private Cliente cliente;
+
+    private ClienteDto cliente;
 
     public Credito dtoToModel()
     {

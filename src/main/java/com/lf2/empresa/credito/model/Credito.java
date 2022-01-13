@@ -5,6 +5,7 @@ import com.lf2.empresa.credito.mapper.CreditoMapper;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -25,6 +26,7 @@ public class Credito
     private Double valor;
 
     @Column(name = "DATA_PRIMEIRA_PARCELA")
+    @DateTimeFormat(pattern = "dd-MM-YYYY")
     private Date dataPrimeiraParcela;
 
     @Column(name = "NUMERO_PARCELAS")
