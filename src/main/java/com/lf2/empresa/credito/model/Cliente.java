@@ -1,11 +1,9 @@
 package com.lf2.empresa.credito.model;
 
+import com.lf2.empresa.credito.base.Model;
 import com.lf2.empresa.credito.dto.ClienteDto;
 import com.lf2.empresa.credito.mapper.ClienteMapper;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -18,7 +16,7 @@ import java.util.HashSet;
 @AllArgsConstructor
 @Entity
 @Table(name = "CLIENTE")
-public class Cliente implements Serializable
+public class Cliente extends Model<ClienteDto> implements Serializable
 {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -37,8 +35,8 @@ public class Cliente implements Serializable
     @Column(name = "RG")
     private String rg;
 
-    @OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY)
-    private Collection<Endereco> enderecos = new HashSet<>();
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "cliente")
+    private Collection<Endereco> enderecos;
 
     @Column(name = "RENDA")
     private Double renda;

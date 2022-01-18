@@ -1,11 +1,12 @@
 package com.lf2.empresa.credito.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.lf2.empresa.credito.base.Model;
 import com.lf2.empresa.credito.dto.CreditoDto;
 import com.lf2.empresa.credito.mapper.CreditoMapper;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -15,7 +16,7 @@ import java.util.Date;
 @AllArgsConstructor
 @Entity
 @Table(name = "CREDITO")
-public class Credito
+public class Credito extends Model<CreditoDto>
 {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -26,7 +27,7 @@ public class Credito
     private Double valor;
 
     @Column(name = "DATA_PRIMEIRA_PARCELA")
-    @DateTimeFormat(pattern = "dd-MM-YYYY")
+    @JsonFormat(pattern = "dd/MM/YYYY")
     private Date dataPrimeiraParcela;
 
     @Column(name = "NUMERO_PARCELAS")

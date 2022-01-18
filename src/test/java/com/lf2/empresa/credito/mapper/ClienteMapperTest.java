@@ -67,8 +67,8 @@ class ClienteMapperTest
         Collection<CreditoDto> creditoDtos = new HashSet<>();
         creditoDtos.add(creditoDto);
 
-        dto.setEnderecos(enderecoDtos);
-        dto.setCreditos(creditoDtos);
+//        dto.setEnderecos(enderecoDtos);
+//        dto.setCreditos(creditoDtos);
 
 
     }
@@ -80,8 +80,8 @@ class ClienteMapperTest
         ClienteDto clienteDto = clienteMapper.modelToDto(cliente);
 
         assertEquals(1L, clienteDto.getId());
-        assertFalse(clienteDto.getEnderecos().isEmpty());
-        assertFalse(clienteDto.getCreditos().isEmpty());
+//        assertFalse(clienteDto.getEnderecos().isEmpty());
+//        assertFalse(clienteDto.getCreditos().isEmpty());
     }
 
     @Test

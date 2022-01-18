@@ -1,5 +1,6 @@
 package com.lf2.empresa.credito.dto;
 
+import com.lf2.empresa.credito.base.ModelDto;
 import com.lf2.empresa.credito.mapper.ClienteMapper;
 import com.lf2.empresa.credito.model.Cliente;
 import lombok.Data;
@@ -8,7 +9,7 @@ import java.io.Serializable;
 import java.util.Collection;
 
 @Data
-public class ClienteDto implements Serializable
+public class ClienteDto extends ModelDto<Cliente> implements Serializable
 {
     private Long id;
     private String nome;

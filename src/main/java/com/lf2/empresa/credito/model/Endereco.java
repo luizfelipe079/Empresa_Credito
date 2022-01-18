@@ -1,5 +1,6 @@
 package com.lf2.empresa.credito.model;
 
+import com.lf2.empresa.credito.base.Model;
 import com.lf2.empresa.credito.dto.EnderecoDto;
 import com.lf2.empresa.credito.mapper.EnderecoMapper;
 import lombok.AllArgsConstructor;
@@ -7,13 +8,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @Table(name = "ENDERECO")
-public class Endereco
+public class Endereco extends Model<EnderecoDto> implements Serializable
 {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

@@ -1,25 +1,29 @@
 package com.lf2.empresa.credito.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.lf2.empresa.credito.base.ModelDto;
 import com.lf2.empresa.credito.mapper.CreditoMapper;
+import com.lf2.empresa.credito.model.Cliente;
 import com.lf2.empresa.credito.model.Credito;
 import lombok.Data;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
 @Data
-public class CreditoDto
+public class CreditoDto extends ModelDto<Credito>
 {
     private Long id;
 
+    @JsonIgnore
+    private Cliente cliente;
+
     private Double valor;
 
-    @DateTimeFormat(pattern = "dd-MM-YYYY")
+    @JsonFormat(pattern = "dd/MM/YYYY")
     private Date dataPrimeiraParcela;
 
     private Integer numParcelas;
-
-    private ClienteDto cliente;
 
     public Credito dtoToModel()
     {

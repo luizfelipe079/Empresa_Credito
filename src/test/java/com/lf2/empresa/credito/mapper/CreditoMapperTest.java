@@ -47,7 +47,6 @@ class CreditoMapperTest
 
         ClienteDto clienteDto = new ClienteDto();
         clienteDto.setId(10L);
-        creditoDto.setCliente(clienteDto);
 
     }
 
@@ -58,7 +57,6 @@ class CreditoMapperTest
         CreditoDto dto = creditoMapper.modelToDto(credito);
 
         assertEquals(1L, dto.getId());
-        assertEquals(10L, dto.getCliente().getId());
     }
 
     @Test

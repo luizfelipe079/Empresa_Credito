@@ -43,11 +43,9 @@ class EnderecoMapperTest
 
         Cliente cliente = new Cliente();
         cliente.setId(10L);
-        endereco.setCliente(cliente);
 
         ClienteDto clienteDto = new ClienteDto();
         clienteDto.setId(10L);
-        enderecoDto.setCliente(clienteDto);
     }
 
     @Test
@@ -57,7 +55,6 @@ class EnderecoMapperTest
         EnderecoDto dto = enderecoMapper.modelToDto(endereco);
 
         assertEquals(1L, dto.getId());
-        assertEquals(10L, dto.getCliente().getId());
     }
 
     @Test
@@ -67,7 +64,6 @@ class EnderecoMapperTest
         Endereco model = enderecoMapper.dtoToModel(enderecoDto);
 
         assertEquals(1L, model.getId());
-        assertEquals(10L, model.getCliente().getId());
     }
 
     @Test
