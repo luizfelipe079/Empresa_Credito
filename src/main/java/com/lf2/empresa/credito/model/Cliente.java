@@ -35,7 +35,7 @@ public class Cliente extends Model<ClienteDto> implements Serializable
     @Column(name = "RG")
     private String rg;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "cliente")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "cliente", cascade = CascadeType.REMOVE)
     private Collection<Endereco> enderecos;
 
     @Column(name = "RENDA")
@@ -44,8 +44,8 @@ public class Cliente extends Model<ClienteDto> implements Serializable
     @Column(name = "SENHA")
     private String senha;
 
-    @OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY)
-    private Collection<Credito> creditos = new HashSet<>();
+    @OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    private Collection<Credito> creditos;
 
     public Boolean addEndereco(Endereco endereco)
     {
